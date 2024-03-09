@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Message Board | <%= title %></title>
+</head>
+<body>
+    <header>
+        <h1>Mini Message Board</h1>
+        <p>You can add any message that you want to our board!</p>
+    </header>
+
+    <main>
+        <p>Here are all the messages on the board:</p>
+        <ul>
+            <% messages.forEach(message => { %>
+            <li><%= `${message.user} said "${message.text}" at ${message.added}` %></li>
+            <% }) %>
+        </ul>
+    </main>
+</body>
+</html>
