@@ -1,8 +1,7 @@
 const express = require("express");
 
 // import the routers
-const indexRouter = require("./routes/index");
-const newRouter = require("./routes/new");
+const router = require("./routes/index");
 
 const app = express();
 port = 3000;
@@ -11,8 +10,10 @@ port = 3000;
 app.set("views", `${__dirname}/views`);
 app.set("view engine", "ejs");
 
-app.use("/", indexRouter);
-app.use("/new", newRouter);
+// Middleware for parsing the body for POST requests
+app.use(express.urlencoded({ extended: false }))
+
+app.use("/", router);
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
